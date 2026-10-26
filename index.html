@@ -1,152 +1,449 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Keerthi Reddy | Data Analyst Portfolio</title>
-<meta name="description" content="A Keerthi Reddy - aspiring Data Analyst portfolio featuring SQL, Excel and Power BI projects.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Keerthi Reddy | Data Analyst &amp; Business Analyst</title>
+<meta name="description" content="Portfolio of A Keerthi Reddy, B.Tech CSE student (CGPA 9.49) seeking Data Analyst and Business Analyst roles. Projects in SQL, PostgreSQL, Python, Power BI, DAX and Streamlit.">
+<meta name="theme-color" content="#0d2137">
+<link rel="canonical" href="https://sweety3-hub.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="A Keerthi Reddy | Data Analyst &amp; Business Analyst">
+<meta property="og:description" content="SQL, Python, Power BI and DAX projects: revenue-risk analytics, churn, funnel and sales analysis.">
+<meta property="og:url" content="https://sweety3-hub.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d2137'/%3E%3Ctext x='32' y='42' font-size='26' font-family='Arial' font-weight='700' text-anchor='middle' fill='%23fff'%3EAK%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"A Keerthi Reddy","jobTitle":"Aspiring Data Analyst","url":"https://sweety3-hub.github.io/","email":"mailto:keerthireddyaalla9@gmail.com","alumniOf":"Mohan Babu University","sameAs":["https://github.com/Sweety3-hub","https://www.linkedin.com/in/alla-keerthi-reddy-a37026291"]}</script>
 <style>
 :root{
-  --bg:#07111f; --panel:#0d1b2d; --panel2:#101f33; --text:#edf5ff;
-  --muted:#9fb0c5; --blue:#4da3ff; --cyan:#64d8ff; --line:#1c3048;
-  --green:#54d6a0; --white:#fff;
+  --navy:#0d2137; --navy-2:#163456; --navy-3:#1e4a73;
+  --acc:#2c5aa0; --acc-soft:#e8eef8;
+  --ink:#152033; --mute:#5c6b80; --line:#dce4ef;
+  --bg:#f4f7fb; --card:#ffffff; --white:#fff;
+  --r:16px; --shadow:0 10px 30px rgba(13,33,55,.08);
+  --font:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --display:"Outfit",system-ui,sans-serif;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-a{color:inherit;text-decoration:none}
-.container{width:min(1120px,92%);margin:auto}
-nav{position:sticky;top:0;z-index:20;background:rgba(7,17,31,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:23px;font-weight:800}.logo span{color:var(--blue)}
-.nav-links{display:flex;gap:28px;color:#c7d5e6;font-size:15px}
-.nav-links a:hover{color:var(--cyan)}
-.menu{display:none;background:none;border:1px solid var(--line);color:white;padding:8px 11px;border-radius:8px}
-.hero{padding:105px 0 80px;background:radial-gradient(circle at 80% 20%,#12345b 0,transparent 35%),linear-gradient(180deg,#08172a 0,#07111f 100%)}
-.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:65px;align-items:center}
-.kicker{color:var(--blue);font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
-h1{font-size:clamp(42px,6vw,72px);line-height:1.05;letter-spacing:-2px;margin-bottom:22px}
-.hero h1 span{color:var(--cyan)}
-.hero p{font-size:18px;color:var(--muted);max-width:680px}
-.buttons{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
-.btn{padding:12px 19px;border-radius:9px;font-weight:700;border:1px solid var(--blue);background:var(--blue);color:#04101e}
-.btn.secondary{background:transparent;color:var(--text);border-color:var(--line)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--font)}
+a{color:var(--acc)}
+a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+img{max-width:100%;display:block}
+.wrap{width:min(1120px,calc(100% - 40px));margin:0 auto}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;color:#000;padding:8px 12px;z-index:30}
+.bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--acc),var(--navy));z-index:40}
+header.nav{position:sticky;top:0;z-index:20;background:rgba(244,247,251,.9);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:box-shadow .25s,border-color .25s}
+header.nav.sc{box-shadow:0 8px 28px rgba(13,33,55,.08);border-color:var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:16px}
+.logo{font-family:var(--display);font-weight:700;letter-spacing:.02em;color:var(--navy);text-decoration:none;font-size:1.05rem}
+.nav-links{display:flex;gap:4px 18px;flex-wrap:wrap}
+.nav-links a{color:var(--mute);text-decoration:none;font-size:.92rem;font-weight:600;padding:6px 2px;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--acc);transform:scaleX(0);transition:transform .22s}
+.nav-links a:hover,.nav-links a.on{color:var(--navy)}
+.nav-links a:hover::after,.nav-links a.on::after{transform:scaleX(1)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:8px 10px;color:var(--navy);font-weight:700}
+.hero{padding:72px 0 56px;background:
+  radial-gradient(720px 280px at 92% -20%,rgba(44,90,160,.16),transparent 70%),
+  linear-gradient(180deg,#eef3f9 0%,var(--bg) 100%)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:8px;background:var(--acc-soft);color:var(--navy-3);font-weight:700;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:99px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;color:var(--navy)}
+h1{font-size:clamp(2.15rem,5vw,3.35rem);line-height:1.12;margin:16px 0 12px;font-weight:800}
+h1 .hl{color:var(--acc)}
+.sub{font-size:1.12rem;color:var(--mute);margin:0 0 22px;max-width:38em}
+.facts{display:flex;flex-wrap:wrap;gap:8px 10px;padding:0;margin:0 0 8px;list-style:none}
+.facts li{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.9rem;color:var(--mute)}
+.facts b{color:var(--navy)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:12px;font-weight:700;text-decoration:none;border:2px solid var(--navy);font-family:var(--display);font-size:.95rem;transition:transform .18s,box-shadow .18s,background .18s,color .18s}
 .btn:hover{transform:translateY(-2px)}
-.dashboard{background:linear-gradient(145deg,#10253d,#0b1728);border:1px solid #24415e;border-radius:18px;padding:22px;box-shadow:0 25px 70px #0006}
-.dash-top{display:flex;justify-content:space-between;color:#b8c8da;font-size:12px;margin-bottom:18px}
-.live{color:var(--green)}
-.metric{background:#0a1727;border:1px solid var(--line);padding:15px;border-radius:12px;margin-bottom:12px}
-.metric small{color:var(--muted)}.metric strong{display:block;font-size:25px}
-.bar{height:9px;background:#182b42;border-radius:10px;overflow:hidden;margin-top:10px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:10px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:25px}
-.stat{background:var(--panel);border:1px solid var(--line);padding:18px;border-radius:12px}.stat b{font-size:24px}.stat span{display:block;color:var(--muted);font-size:13px}
-section{padding:85px 0}
-.section-head{margin-bottom:38px}.eyebrow{color:var(--blue);font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase}.section-head h2{font-size:38px;margin-top:7px}.section-head p{color:var(--muted);max-width:700px;margin-top:8px}
-.skills{display:flex;flex-wrap:wrap;gap:12px}.skill{padding:11px 16px;background:var(--panel);border:1px solid var(--line);border-radius:9px;color:#d9e7f5}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}.card h3{margin-bottom:12px}.card p{color:var(--muted)}
-.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.project{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:25px;transition:.2s}.project:hover{border-color:#356489;transform:translateY(-3px)}
-.tag{display:inline-block;color:var(--cyan);font-size:12px;font-weight:800;margin-bottom:13px;text-transform:uppercase;letter-spacing:1px}
-.project h3{font-size:21px;margin-bottom:8px}.project p{color:var(--muted);font-size:14px}
-.project a{display:inline-block;margin-top:18px;color:var(--blue);font-weight:700}
-.project a:hover{text-decoration:underline}
-.timeline{border-left:2px solid #23415d;padding-left:25px}.timeline-item{margin-bottom:25px}.timeline-item h3{font-size:20px}.timeline-item p{color:var(--muted)}.date{color:var(--blue);font-size:13px;font-weight:700}
-.contact{background:linear-gradient(145deg,#0c2137,#091524);border:1px solid var(--line);border-radius:20px;padding:42px;text-align:center}.contact p{color:var(--muted);margin:10px auto 25px}
-footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);text-align:center;font-size:13px}
-@media(max-width:800px){
- .hero-grid,.about-grid,.projects{grid-template-columns:1fr}.hero{padding-top:70px}.nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--bg);padding:20px;flex-direction:column;gap:14px;border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.menu{display:block}.stats{grid-template-columns:1fr}
+.btn.p{background:var(--navy);color:#fff;box-shadow:0 8px 20px rgba(13,33,55,.2)}
+.btn.p:hover{background:var(--navy-2)}
+.btn.s{color:var(--navy);background:transparent}
+.btn.s:hover{background:var(--navy);color:#fff}
+.spot{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow)}
+.spot h2{font-size:1.05rem;margin:0 0 6px}
+.spot .meta{margin:0 0 16px;color:var(--mute);font-size:.9rem}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi{background:var(--bg);border-radius:12px;padding:12px 14px}
+.kpi b{display:block;font-family:var(--display);font-size:1.4rem;color:var(--navy);line-height:1.2}
+.kpi span{font-size:.78rem;color:var(--mute)}
+.tag{display:inline-block;background:var(--acc-soft);color:var(--navy-3);border:1px solid #d5e0f0;font-size:.72rem;font-weight:700;letter-spacing:.03em;padding:3px 9px;border-radius:99px}
+section{padding:64px 0}
+section.alt{background:var(--white);border-block:1px solid var(--line)}
+.t{font-size:1.7rem;margin:0 0 8px}
+.t::after{content:"";display:block;width:42px;height:3px;margin-top:10px;border-radius:3px;background:var(--acc)}
+.lead{color:var(--mute);margin:0 0 28px;max-width:48em}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:0 4px 16px rgba(13,33,55,.04);transition:transform .22s,box-shadow .22s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:1.12rem}
+.card p{margin:.45em 0;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0;padding:0;list-style:none}
+.chips li{background:var(--acc-soft);color:var(--navy-3);font-size:.78rem;font-weight:650;padding:3px 10px;border-radius:99px}
+.proj.feat{grid-column:1/-1}
+.badge{float:right;background:var(--navy);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.shots a{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg)}
+.shots img{width:100%;height:150px;object-fit:cover;transition:transform .45s}
+.shots a:hover img{transform:scale(1.04)}
+details{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+summary{cursor:pointer;font-weight:700;color:var(--navy);list-style:none;display:flex;align-items:center;gap:8px;font-family:var(--display)}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--acc-soft);color:var(--acc);font-weight:800}
+details[open]>summary::before{content:"\2212"}
+details h4{margin:14px 0 4px;font-size:.92rem}
+details ul{margin:.3em 0;padding-left:1.15em}
+.caption{margin:10px 0 0;font-size:.9rem;color:var(--mute)}
+.impact{background:var(--acc-soft);border-radius:12px;padding:10px 14px;margin:10px 0;font-size:.93rem}
+.impact b{color:var(--navy)}
+.links{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-weight:700}
+.links a{text-decoration:none}
+.links a:hover{text-decoration:underline}
+.more{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.more a{text-decoration:none;color:inherit;display:block}
+.more h3{font-size:.98rem;margin:0 0 4px}
+.more p{margin:0;color:var(--mute);font-size:.88rem}
+.tl{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--mute);font-size:.92rem;margin-bottom:8px}
+ul.plain{padding-left:1.15em;margin:.5em 0}
+.cert{display:flex;flex-direction:column;min-height:100%}
+.ctype{align-self:flex-start;font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--acc);background:var(--acc-soft);padding:3px 10px;border-radius:99px;margin-bottom:10px}
+.cert .org,.cert .meta{color:var(--mute);margin:0}
+.cert .org{font-size:.95rem}
+.cert .meta{font-size:.85rem;margin-top:4px}
+.cavail{margin:12px 0 0;font-size:.85rem;color:var(--mute);border-top:1px dashed var(--line);padding-top:8px}
+footer{background:var(--navy);color:#c5d2e3;padding:28px 0;font-size:.88rem;text-align:center}
+footer a{color:#e8eef8}
+.top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;border:0;background:var(--navy);color:#fff;font-size:1.15rem;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .25s,transform .25s;z-index:15}
+.top.show{opacity:1;pointer-events:auto;transform:none}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.rv.in{opacity:1;transform:none}
+@media(max-width:860px){
+  .hero{padding:40px 0 36px}
+  .hero-grid,.shots{grid-template-columns:1fr}
+  .shots img{height:180px}
+  .menu-btn{display:inline-flex}
+  .nav-links{display:none;position:absolute;left:0;right:0;top:68px;background:var(--white);border-bottom:1px solid var(--line);padding:12px 20px 18px;flex-direction:column}
+  .nav-links.open{display:flex}
+  .badge{float:none;display:inline-block;margin-bottom:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important;animation:none!important}
+  .rv{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
-<nav>
- <div class="container nav-inner">
-  <a class="logo" href="#home">A Keerthi Reddy<span>.</span></a>
-  <button class="menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-  <div class="nav-links">
-   <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Internship</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
+<div class="bar" id="bar" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#home">A Keerthi Reddy</a>
+    <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
- </div>
-</nav>
-
-<header class="hero" id="home">
- <div class="container hero-grid">
-  <div>
-   <div class="kicker">Aspiring Data Analyst</div>
-   <h1>Turning data into <span>clear insights.</span></h1>
-   <p>I’m A Keerthi Reddy, a B.Tech Computer Science student building practical data analysis projects with SQL, Excel and Power BI.</p>
-   <div class="buttons"><a class="btn" href="#projects">View Projects</a><a class="btn secondary" href="https://github.com/Sweety3-hub" target="_blank">GitHub Profile ↗</a></div>
-   <div class="stats"><div class="stat"><b>7</b><span>Projects</span></div><div class="stat"><b>6+</b><span>Core Tools</span></div><div class="stat"><b>1</b><span>Data Internship</span></div></div>
-  </div>
-  <div class="dashboard">
-   <div class="dash-top"><span>DATA ANALYSIS DASHBOARD</span><span class="live">● LIVE</span></div>
-   <div class="metric"><small>Total Projects</small><strong>07</strong><div class="bar"><i style="width:82%"></i></div></div>
-   <div class="metric"><small>Primary Tools</small><strong>SQL · Excel · Power BI</strong><div class="bar"><i style="width:90%"></i></div></div>
-   <div class="metric"><small>Current Learning</small><strong>Python · Pandas · NumPy</strong><div class="bar"><i style="width:55%"></i></div></div>
-  </div>
- </div>
 </header>
 
-<section id="about"><div class="container">
- <div class="section-head"><div class="eyebrow">About Me</div><h2>Learning by building.</h2></div>
- <div class="about-grid">
-  <div class="card"><h3>Who I am</h3><p>I am a Computer Science and Engineering student interested in data analytics and business intelligence. I enjoy turning raw data into useful summaries, dashboards and insights.</p></div>
-  <div class="card"><h3>Education</h3><p><b style="color:white">B.Tech, Computer Science & Engineering</b><br>Mohan Babu University, Tirupati</p></div>
- </div>
-</div></section>
+<main id="main">
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Data Analyst · Business Analyst</span>
+      <h1>Turning messy data into <span class="hl">decisions</span> a business can use.</h1>
+      <p class="sub">B.Tech CSE student building SQL, Python and Power BI work that finds where revenue leaks, why customers leave and where buyers drop off — then recommends what to fix.</p>
+      <ul class="facts">
+        <li><b>CGPA 9.49 / 10</b></li>
+        <li>B.Tech CSE, Mohan Babu University · 2027</li>
+        <li>APSSDC Power BI intern</li>
+      </ul>
+      <div class="cta">
+        <a class="btn p" href="#projects">View Projects</a>
+        <a class="btn s" href="A_Keerthi_Reddy_Resume.pdf?v=6" target="_blank" rel="noopener">View Resume</a>
+        <a class="btn s" href="A_Keerthi_Reddy_Resume.pdf?v=6" download="A_Keerthi_Reddy_Resume.pdf">Download Resume</a>
+      </div>
+    </div>
+    <aside class="spot" aria-label="Featured project">
+      <span class="tag">Featured project</span>
+      <h2>Revenue Leakage &amp; Customer Journey Intelligence</h2>
+      <p class="meta">Python · PostgreSQL · Power BI · Streamlit &nbsp;<span class="tag">Simulated data</span></p>
+      <div class="kpis">
+        <div class="kpi"><b data-n="21" data-d="0">21</b><span>failed payment attempts</span></div>
+        <div class="kpi"><b data-n="1.52" data-d="2" data-pre="₹" data-suf=" lakh">₹1.52 lakh</b><span>potential payment risk</span></div>
+        <div class="kpi"><b data-n="54.87" data-d="2" data-suf="%">54.87%</b><span>delivery delay rate</span></div>
+        <div class="kpi"><b data-n="7" data-d="0">7</b><span>payment anomalies flagged</span></div>
+      </div>
+      <p style="margin:16px 0 0"><a href="#revenue">Read the case study</a></p>
+    </aside>
+  </div>
+</section>
 
-<section id="skills"><div class="container">
- <div class="section-head"><div class="eyebrow">Skills & Technologies</div><h2>Tools I work with.</h2></div>
- <div class="skills">
-  <span class="skill">SQL</span><span class="skill">PostgreSQL</span><span class="skill">pgAdmin</span><span class="skill">Excel</span><span class="skill">Power BI</span><span class="skill">Power Query</span><span class="skill">DAX</span><span class="skill">Python</span><span class="skill">Pandas</span><span class="skill">NumPy</span><span class="skill">VS Code</span>
- </div>
- <div class="card" style="margin-top:25px"><p><b style="color:white">Current learning:</b> Python, Pandas and NumPy for data analysis. I’m continuing to strengthen these skills through practice and projects.</p></div>
-</div></section>
+<section id="about">
+  <div class="wrap rv">
+    <h2 class="t">About</h2>
+    <p class="lead">I’m a Computer Science undergraduate with a 9.49 CGPA and a practical focus on analytics. I work in SQL (PostgreSQL), Python (Pandas), Excel and Power BI (DAX, Power Query), and I prefer projects that end in a clear business recommendation rather than charts alone. I completed the APSSDC Data Analytics using Power BI internship in 2026 and am looking for an entry-level analytics role where I can keep learning on real business data.</p>
+  </div>
+</section>
 
-<section id="projects"><div class="container">
- <div class="section-head"><div class="eyebrow">Projects</div><h2>Practical work.</h2><p>Seven projects covering SQL, Excel and Power BI based analysis.</p></div>
- <div class="projects">
-  <article class="project"><span class="tag">SQL</span><h3>Sales Analysis using SQL</h3><p>Sales data analysis using joins, aggregations, subqueries, CTEs and window functions.</p><a href="https://github.com/Sweety3-hub/sales-analysis-sql" target="_blank">View on GitHub ↗</a></article>
-  <article class="project"><span class="tag">SQL</span><h3>Employee Management SQL</h3><p>Employee data analysis using filtering, aggregation, joins, subqueries, CTEs and window functions.</p><a href="https://github.com/Sweety3-hub/employee-management-sql" target="_blank">View on GitHub ↗</a></article>
-  <article class="project"><span class="tag">SQL</span><h3>SQL Basics Project</h3><p>SQL fundamentals covering database operations, filtering, sorting, aggregation and grouping using PostgreSQL.</p><a href="https://github.com/Sweety3-hub/sql-basics-project" target="_blank">View on GitHub ↗</a></article>
-  <article class="project"><span class="tag">Excel</span><h3>Customer Churn Analysis</h3><p>Customer churn analysis using Excel with data cleaning, formulas, categorization and analysis.</p><a href="https://github.com/Sweety3-hub/customer-churn-analysis-excel" target="_blank">View on GitHub ↗</a></article>
-  <article class="project"><span class="tag">Power BI + Python</span><h3>Student Performance Analysis</h3><p>Student performance analysis with Python and an interactive Power BI dashboard.</p><a href="https://github.com/Sweety3-hub/student-performance-analysis-powerbi" target="_blank">View on GitHub ↗</a></article>
-  <article class="project"><span class="tag">Power BI</span><h3>E-commerce Funnel Analysis</h3><p>Funnel and cart abandonment analysis to identify customer drop-off points and conversion patterns.</p><a href="https://github.com/Sweety3-hub/ecommerce-funnel-analysis-powerbi" target="_blank">View on GitHub ↗</a></article>
-  <article class="project"><span class="tag">Power BI · DAX · Power Query</span><h3>Telecom Customer Churn</h3><p>Telecom customer churn analysis and interactive dashboard using Power BI, Power Query and DAX.</p><a href="https://github.com/Sweety3-hub/customer-churn-telecom-powerbi" target="_blank">View on GitHub ↗</a></article>
- </div>
-</div></section>
+<section id="projects" class="alt">
+  <div class="wrap">
+    <h2 class="t">Featured projects</h2>
+    <p class="lead">Four case studies, each linked to its GitHub repository. Simulated and sample datasets are labelled.</p>
+    <div class="grid">
 
-<section id="experience"><div class="container">
- <div class="section-head"><div class="eyebrow">Internship</div><h2>Practical experience.</h2></div>
- <div class="timeline"><div class="timeline-item"><div class="date">Government Internship · Naipunyam Portal</div><h3>Data Analysis using Power BI</h3><p>Completed a government internship focused on data analysis and Power BI, gaining practical exposure to dashboard creation and business-oriented data visualization.</p></div></div>
-</div></section>
+      <article class="card proj feat rv" id="revenue">
+        <span class="badge">Strongest project</span>
+        <h3>Real-Time Revenue Leakage &amp; Customer Journey Intelligence</h3>
+        <p><span class="tag">Simulated e-commerce data</span></p>
+        <p>End-to-end analysis of payment failures, customer-journey drop-offs, product returns and shipping delays to estimate revenue at risk and recommend what to investigate first.</p>
+        <ul class="chips"><li>Python</li><li>Pandas</li><li>PostgreSQL</li><li>SQL</li><li>Power BI</li><li>Streamlit</li></ul>
+        <div class="shots">
+          <a href="https://github.com/Sweety3-hub/Real-Time-Revenue-Intelligence/blob/main/images/Dashboard-Overview.png"><img loading="lazy" src="https://github.com/Sweety3-hub/Real-Time-Revenue-Intelligence/raw/main/images/Dashboard-Overview.png" alt="Dashboard screenshot: business overview"></a>
+          <a href="https://github.com/Sweety3-hub/Real-Time-Revenue-Intelligence/blob/main/images/Dashboard-Charts.png"><img loading="lazy" src="https://github.com/Sweety3-hub/Real-Time-Revenue-Intelligence/raw/main/images/Dashboard-Charts.png" alt="Dashboard screenshot: payment performance and customer journey"></a>
+          <a href="https://github.com/Sweety3-hub/Real-Time-Revenue-Intelligence/blob/main/images/Dashboard-Risk-Analysis.png"><img loading="lazy" src="https://github.com/Sweety3-hub/Real-Time-Revenue-Intelligence/raw/main/images/Dashboard-Risk-Analysis.png" alt="Dashboard screenshot: delivery, returns and payment anomaly detection"></a>
+        </div>
+        <details open>
+          <summary>Objectives, findings and recommendations</summary>
+          <h4>Objectives</h4>
+          <ul>
+            <li>Analyze the customer journey and conversion rates</li>
+            <li>Identify failed payments and unusual transactions</li>
+            <li>Analyze product returns and shipping delays</li>
+            <li>Estimate potential revenue at risk and generate business recommendations</li>
+          </ul>
+          <h4>Findings</h4>
+          <ul>
+            <li>Completed sales ₹870,887.01; net sales after refunds ₹754,415.20</li>
+            <li>21 failed payment attempts; ₹151,989.12 potential payment risk</li>
+            <li>54.87% delivery delay rate; 7 payment anomalies flagged</li>
+          </ul>
+          <p class="caption">Failed-payment amounts are potential revenue at risk on simulated data, not confirmed loss. Anomaly flags mark transactions for review.</p>
+          <div class="impact"><b>Business value:</b> shows where payment failures, shipping delays and returns put revenue at risk, so teams know what to investigate first.</div>
+          <h4>Recommendations</h4>
+          <p>Python analysis produces recommended actions, presented in Power BI and Streamlit dashboards. The Streamlit app runs locally against PostgreSQL; setup is in the repository README.</p>
+        </details>
+        <div class="links"><a href="https://github.com/Sweety3-hub/Real-Time-Revenue-Intelligence">View repository</a></div>
+      </article>
 
-<section id="certifications"><div class="container">
- <div class="section-head"><div class="eyebrow">Certifications</div><h2>Learning and credentials.</h2></div>
- <div class="projects">
-  <div class="card"><h3>Data Analytics Essentials</h3><p>Kaggle</p></div>
-  <div class="card"><h3>Intro to SQL</h3><p>Kaggle</p></div>
-  <div class="card"><h3>Python Developer</h3><p>SoloLearn</p></div>
-  <div class="card"><h3>Python</h3><p>SoloLearn</p></div>
- </div>
-</div></section>
+      <article class="card proj rv">
+        <h3>Telecom Customer Churn Analytics</h3>
+        <p>Interactive Power BI dashboard exploring which customer, contract and billing factors relate to churn, to support retention focus.</p>
+        <ul class="chips"><li>Power BI</li><li>Power Query</li><li>DAX</li></ul>
+        <details>
+          <summary>Objectives and analysis</summary>
+          <h4>Objectives</h4>
+          <ul>
+            <li>Identify patterns associated with churn and higher-churn customer segments</li>
+            <li>Build DAX measures and an interactive churn dashboard</li>
+          </ul>
+          <div class="impact"><b>Business value:</b> helps retention teams see which customer groups and plan features to prioritize.</div>
+          <h4>What I analyzed</h4>
+          <p>Churn by demographics, tenure, contract type, internet service, payment method, monthly and total charges, and additional services.</p>
+          <p class="caption">Repository includes the dashboard PDF and Power BI (.pbix) file. The source dataset is omitted because of GitHub’s file-size limit.</p>
+        </details>
+        <div class="links"><a href="https://github.com/Sweety3-hub/customer-churn-telecom-powerbi">View repository</a></div>
+      </article>
 
-<section id="contact"><div class="container"><div class="contact">
- <div class="eyebrow">Contact</div><h2>Let’s connect.</h2>
- <p>I’m open to entry-level data analyst opportunities, internships and projects.</p>
- <div class="buttons" style="justify-content:center"><button class="btn" type="button" onclick="openGmail()">Email Me</button><a class="btn secondary" href="https://github.com/Sweety3-hub" target="_blank" rel="noopener">GitHub ↗</a></div><p id="email-status" style="margin-top:12px;font-size:13px;color:var(--green);min-height:20px"></p>
-</div></div></section>
+      <article class="card proj rv">
+        <h3>E-Commerce Funnel Drop-Off &amp; Cart Abandonment Analysis</h3>
+        <p>Five-stage funnel (entry, product interaction, add to cart, checkout, purchase) to locate where customers are lost and why carts are abandoned.</p>
+        <ul class="chips"><li>Power BI</li><li>Power Query</li><li>DAX</li></ul>
+        <details>
+          <summary>Objectives and recommendations</summary>
+          <h4>Objectives</h4>
+          <ul>
+            <li>Identify major drop-off points and cart abandonment patterns</li>
+            <li>Build an interactive funnel dashboard with DAX measures</li>
+          </ul>
+          <div class="impact"><b>Business value:</b> helps product and marketing teams prioritize fixes at the stages where customers leave.</div>
+          <h4>Business recommendations</h4>
+          <ul>
+            <li>Reduce friction during checkout and simplify the purchase process</li>
+            <li>Improve cart-to-purchase conversion</li>
+            <li>Investigate the highest drop-off stages and monitor funnel conversion regularly</li>
+          </ul>
+          <p class="caption">Repository includes the project report, presentation, abstract and a dashboard screenshots appendix.</p>
+        </details>
+        <div class="links"><a href="https://github.com/Sweety3-hub/ecommerce-funnel-analysis-powerbi">View repository</a></div>
+      </article>
 
-<footer>© 2026 A Keerthi Reddy · Data Analyst Portfolio</footer>
+      <article class="card proj rv">
+        <h3>Sales Analysis</h3>
+        <p><span class="tag">Sample data</span> Seven-script PostgreSQL project covering the SQL techniques used in everyday analyst work.</p>
+        <ul class="chips"><li>SQL</li><li>PostgreSQL</li><li>pgAdmin</li></ul>
+        <details>
+          <summary>What it covers</summary>
+          <div class="impact"><b>Why it matters:</b> SQL is the core day-to-day tool of an analyst; this project shows the query skills behind sales reporting.</div>
+          <ul>
+            <li>Table creation and data insertion</li>
+            <li>Filtering, GROUP BY / HAVING and aggregate functions</li>
+            <li>INNER, LEFT, RIGHT and FULL joins</li>
+            <li>Subqueries and CTEs</li>
+            <li>Window functions: ROW_NUMBER, RANK, DENSE_RANK</li>
+          </ul>
+        </details>
+        <div class="links"><a href="https://github.com/Sweety3-hub/sales-analysis-sql">View repository</a></div>
+      </article>
+    </div>
+
+    <h3 class="t" style="margin-top:40px;font-size:1.25rem">Additional projects</h3>
+    <p class="lead">Further SQL, Excel and Power BI practice work on GitHub.</p>
+    <div class="more">
+      <a class="card rv" href="https://github.com/Sweety3-hub/student-performance-analysis-powerbi">
+        <h3>Student Performance Analysis</h3>
+        <p>Python and Power BI dashboard on academic performance patterns.</p>
+      </a>
+      <a class="card rv" href="https://github.com/Sweety3-hub/customer-churn-analysis-excel">
+        <h3>Customer Churn Analysis</h3>
+        <p>Excel cleaning, formulas and category-level churn summaries.</p>
+      </a>
+      <a class="card rv" href="https://github.com/Sweety3-hub/employee-management-sql">
+        <h3>Employee Management SQL</h3>
+        <p>PostgreSQL filtering, joins, CTEs and window functions.</p>
+      </a>
+      <a class="card rv" href="https://github.com/Sweety3-hub/sql-basics-project">
+        <h3>SQL Basics Project</h3>
+        <p>PostgreSQL fundamentals: filtering, sorting, aggregation and grouping.</p>
+      </a>
+    </div>
+    <p style="margin-top:20px"><a href="https://github.com/Sweety3-hub?tab=repositories">Browse all repositories on GitHub</a></p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2 class="t">Technical skills</h2>
+    <div class="grid sk">
+      <div class="card rv"><h3>Data analysis</h3><ul class="chips"><li>SQL</li><li>Python (Pandas)</li><li>Excel</li><li>Data cleaning</li><li>KPI &amp; trend analysis</li><li>Anomaly detection</li></ul></div>
+      <div class="card rv"><h3>BI &amp; visualization</h3><ul class="chips"><li>Power BI</li><li>DAX</li><li>Power Query</li><li>Streamlit</li><li>Interactive dashboards</li></ul></div>
+      <div class="card rv"><h3>Databases</h3><ul class="chips"><li>PostgreSQL</li><li>pgAdmin</li><li>Joins</li><li>CTEs</li><li>Window functions</li></ul></div>
+      <div class="card rv"><h3>Business analysis</h3><ul class="chips"><li>Funnel &amp; conversion analysis</li><li>Churn &amp; retention analysis</li><li>Revenue risk analysis</li><li>Business recommendations</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="alt">
+  <div class="wrap">
+    <h2 class="t">Internship</h2>
+    <article class="card rv">
+      <h3>Data Analytics Intern (Power BI), APSSDC</h3>
+      <div class="tl"><span>Summer Online Internship, Batch 2 · Naipunyam portal</span><span>15 May 2026 – 14 Jul 2026</span></div>
+      <ul class="plain">
+        <li>Completed a two-month government-sponsored internship on Data Analytics using Power BI.</li>
+        <li>Worked on data analysis and Power BI report and dashboard development; earned a completion certificate.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2 class="t">Education</h2>
+    <article class="card rv">
+      <h3>B.Tech, Computer Science and Engineering</h3>
+      <div class="tl"><span>Mohan Babu University, Tirupati</span><span>Expected 2027</span></div>
+      <p><b>CGPA: 9.49 / 10</b></p>
+    </article>
+  </div>
+</section>
+
+<section id="certifications" class="alt">
+  <div class="wrap">
+    <h2 class="t">Certifications &amp; Internship Certificates</h2>
+    <p class="lead">Course credentials and my internship completion certificate. Files can be shared on request for verification.</p>
+    <div class="grid">
+      <article class="card cert rv">
+        <span class="ctype">Internship certificate</span>
+        <h3>Data Analytics using Power BI</h3>
+        <p class="org">APSSDC · Summer Online Internship, Batch 2</p>
+        <p class="meta">15 May 2026 – 14 Jul 2026</p>
+        <p class="cavail">Certificate available on request</p>
+      </article>
+      <article class="card cert rv">
+        <span class="ctype">Course certificate</span>
+        <h3>Data Analytics Essentials</h3>
+        <p class="org">Cisco Networking Academy</p>
+        <p class="cavail">Certificate available on request</p>
+      </article>
+      <article class="card cert rv">
+        <span class="ctype">Course certificate</span>
+        <h3>R for Data Science: Analysis and Visualization</h3>
+        <p class="org">LinkedIn Learning</p>
+        <p class="cavail">Certificate available on request</p>
+      </article>
+      <article class="card cert rv">
+        <span class="ctype">Course certificate</span>
+        <h3>Intro to SQL</h3>
+        <p class="org">Kaggle Learn</p>
+        <p class="cavail">Certificate available on request</p>
+      </article>
+      <article class="card cert rv">
+        <span class="ctype">Course certificate</span>
+        <h3>Python</h3>
+        <p class="org">Kaggle Learn</p>
+        <p class="cavail">Certificate available on request</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap rv">
+    <h2 class="t">Let’s connect</h2>
+    <p class="lead">I’m seeking Data Analyst, Business Analyst and AI/Data internships and fresher roles. Email is the fastest way to reach me.</p>
+    <div class="cta">
+      <a class="btn p" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=keerthireddyaalla9@gmail.com&amp;su=Data%20Analyst%20internship%20enquiry" target="_blank" rel="noopener">Email me</a>
+      <a class="btn s" href="A_Keerthi_Reddy_Resume.pdf?v=6" target="_blank" rel="noopener">View Resume</a>
+      <a class="btn s" href="A_Keerthi_Reddy_Resume.pdf?v=6" download="A_Keerthi_Reddy_Resume.pdf">Download Resume</a>
+    </div>
+    <div class="links">
+      <a href="https://github.com/Sweety3-hub">GitHub</a>
+      <a href="https://www.linkedin.com/in/alla-keerthi-reddy-a37026291">LinkedIn</a>
+      <a href="mailto:keerthireddyaalla9@gmail.com">keerthireddyaalla9@gmail.com</a>
+    </div>
+    <p class="lead" style="margin-top:14px;font-size:.9rem">Prefer Outlook or another mail app? <a href="mailto:keerthireddyaalla9@gmail.com?subject=Data%20Analyst%20internship%20enquiry">Open in my mail app</a> or <button type="button" id="copyEmail" style="font:inherit;background:none;border:0;color:var(--acc);text-decoration:underline;cursor:pointer;padding:0">copy my email address</button><span id="copyMsg" role="status" aria-live="polite"></span></p>
+  </div>
+</section>
+</main>
+
+<button class="top" id="toTop" type="button" aria-label="Back to top">↑</button>
+<footer><div class="wrap">© 2026 A Keerthi Reddy · Project figures come from the linked GitHub repositories; simulated and sample data are labelled.</div></footer>
 <script>
-function openGmail(){
-  const email='keerthireddyaalla9@gmail.com';
-  const gmailUrl='https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(email);
-  const status=document.getElementById('email-status');
-  status.textContent='Opening Gmail...';
-  window.open(gmailUrl, '_blank');
-}
-document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('open')));
+(function(){
+var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+var hdr=document.querySelector('header.nav'),bar=document.getElementById('bar'),top=document.getElementById('toTop');
+var menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('navLinks');
+function onScroll(){var y=window.scrollY,m=document.documentElement.scrollHeight-window.innerHeight;
+bar.style.width=(m>0?y/m*100:0)+'%';hdr.classList.toggle('sc',y>8);top.classList.toggle('show',y>600)}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+top.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'})});
+if(menuBtn){menuBtn.addEventListener('click',function(){var open=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open?'true':'false')});
+nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')})})}
+$('.grid').forEach(function(g){$('.rv',g).forEach(function(c,i){c.style.transitionDelay=(i*70)+'ms'})});
+var els=$('.rv');
+if(!('IntersectionObserver'in window)||rm){els.forEach(function(e){e.classList.add('in')})}
+else{var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.08});els.forEach(function(e){io.observe(e)})}
+var links=$('header.nav nav a'),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+if('IntersectionObserver'in window){var so=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+x.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});secs.forEach(function(s){so.observe(s)})}
+function fmt(b,v){return (b.dataset.pre||'')+v.toFixed(+b.dataset.d)+(b.dataset.suf||'')}
+var ks=$('.kpi b[data-n]');
+function run(b){var t=+b.dataset.n,s=null;if(rm){b.textContent=fmt(b,t);return}
+function f(ts){s=s||ts;var k=Math.min((ts-s)/1100,1),e=1-Math.pow(1-k,3);b.textContent=fmt(b,t*e);if(k<1)requestAnimationFrame(f);else b.textContent=fmt(b,t)}requestAnimationFrame(f)}
+if('IntersectionObserver'in window&&!rm){var ko=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){run(x.target);ko.unobserve(x.target)}})},{threshold:.6});ks.forEach(function(b){ko.observe(b)})}
+var cb=document.getElementById('copyEmail');if(cb){cb.addEventListener('click',function(){var a='keerthireddyaalla9@gmail.com',m=document.getElementById('copyMsg');
+function ok(){m.textContent=' (copied)'}function no(){m.textContent=' ('+a+')'}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(a).then(ok,no)}else{no()}})}
+})();
 </script>
 </body>
 </html>
